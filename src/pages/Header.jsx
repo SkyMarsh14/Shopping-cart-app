@@ -4,6 +4,7 @@ import StyledLink from "./StyledLink";
 
 const StyledHeader = styled.header`
   display: flex;
+  height: 4em;
   color: #bf4f74;
   justify-content: space-between;
   align-items: center;
@@ -12,6 +13,7 @@ const StyledHeader = styled.header`
   position: fixed;
   top: 0;
   width: 100%;
+  background-color: #ffffffd3;
 `;
 const TabButton = styled.button`
   padding: 0.1em 1em;
