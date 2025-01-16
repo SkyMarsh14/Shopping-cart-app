@@ -10,6 +10,9 @@ const Container = styled.div`
 `;
 const ItemContainer = styled.div`
   display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-auto-rows: 300px;
+  gap: 1em;
 `;
 const ShopPage = () => {
   const { data, error, loading } = useProductData(allProductUrl);
