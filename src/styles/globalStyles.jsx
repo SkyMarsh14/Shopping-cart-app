@@ -16,6 +16,7 @@ body {
   line-height: 1.5;
   /* 4. Improve text rendering */
   -webkit-font-smoothing: antialiased;
+  font-size: clamp(10px, 5vw, 30px);
 }
 
 /* 5. Improve media defaults */

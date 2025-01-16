@@ -7,7 +7,7 @@ const Container = styled.div`
 const Home = () => {
   return (
     <Container>
-      <h1>Welcome to Amazen</h1>
+      <h1>Welcome to Home</h1>
     </Container>
   );
 };
