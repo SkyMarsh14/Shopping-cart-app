@@ -5,7 +5,24 @@ const GlobalStyle = createGlobalStyle`
 *, *::before, *::after {
   box-sizing: border-box;
 }
-
+html {
+    font-size: 16px;
+}
+@media (min-width:768px) {
+  html{
+    font-size: 18px;
+  }
+}
+@media (min-width:1024px) {
+  html{
+    font-size: 19px;
+  }
+}
+@media (min-width:1280px) {
+  html{
+    font-size: 20px;
+  }
+}
 /* 2. Remove default margin */
 * {
   margin: 0;
@@ -16,7 +33,6 @@ body {
   line-height: 1.5;
   /* 4. Improve text rendering */
   -webkit-font-smoothing: antialiased;
-  font-size: clamp(10px, 5vw, 30px);
 }
 
 /* 5. Improve media defaults */

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { ShoppingCart } from "lucide-react";
+import StyledLink from "./StyledLink";
 
 const StyledHeader = styled.header`
   display: flex;
@@ -7,13 +8,13 @@ const StyledHeader = styled.header`
   justify-content: space-between;
   align-items: center;
   padding: 0.2em 2em;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #e5e7eb;
   position: fixed;
   top: 0;
   width: 100%;
 `;
-const Li = styled.li`
-  list-style: none;
+const TabButton = styled.button`
+  padding: 0.1em 1em;
 `;
 const Ul = styled.ul`
   display: flex;
@@ -27,10 +28,9 @@ const Header = () => {
       <div className="home">Shopping Cart</div>
       <nav>
         <Ul>
-          <Li>Shop</Li>
-          <Li>
-            <ShoppingCart />
-          </Li>
+          <StyledLink to="/">Home</StyledLink>
+          <StyledLink to="shop">Shop</StyledLink>
+          <ShoppingCart />
         </Ul>
       </nav>
     </StyledHeader>
