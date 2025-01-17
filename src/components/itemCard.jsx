@@ -1,8 +1,10 @@
 import { Star } from "lucide-react";
 import styled from "styled-components";
+import AddCartBtn from "./AddToCartBtn";
+
 const Container = styled.div`
   display: grid;
-  padding: 0.2em 0.5em;
+  padding: 0.4em 0.7em;
   border-radius: 8px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: box-shadow 0.2s ease-in-out;
@@ -43,6 +45,7 @@ const Card = ({ data }) => {
           {data.rating.rate} ({data.rating.count})
         </div>
       </RatingDiv>
+      <AddCartBtn itemData={data} />
     </Container>
   );
 };

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { ShoppingCart } from "lucide-react";
-import StyledLink from "./StyledLink";
+import StyledLink from "../components/StyledLink";
 
 const StyledHeader = styled.header`
   display: flex;
@@ -32,7 +32,9 @@ const Header = () => {
         <Ul>
           <StyledLink to="/">Home</StyledLink>
           <StyledLink to="shop">Shop</StyledLink>
-          <ShoppingCart />
+          <StyledLink to="cart">
+            <ShoppingCart />
+          </StyledLink>
         </Ul>
       </nav>
     </StyledHeader>
