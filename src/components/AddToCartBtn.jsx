@@ -20,11 +20,20 @@ const AddCartBtn = ({ itemData }) => {
   const [cart, setCart] = useContext(CartContext);
   const handleClick = () => {
     setCart((prev) => {
-      if (prev === null) {
-        return [itemData.id];
-      } else {
-        return [...prev, itemData.id];
+      console.log(prev);
+      if (!prev) {
+        return [{ ...itemData, count: 1 }];
       }
+      const itemIndex = prev.findIndex((each) => each.id === itemData.id);
+      if (itemIndex !== -1) {
+        const updatedCart = [...prev];
+        updatedCart[itemIndex] = {
+          ...updatedCart[itemIndex],
+          count: updatedCart[itemIndex].count + 1,
+        };
+        return updatedCart;
+      }
+      return [...prev, { ...itemData, count: 1 }];
     });
   };
   return (

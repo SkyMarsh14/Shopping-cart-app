@@ -8,11 +8,17 @@ const Container = styled.div`
 `;
 const Cart = () => {
   const [cart, setCart] = useContext(CartContext);
+  console.log(cart);
   return (
     <Container>
       <h1>Shopping Cart</h1>
       {cart ? (
-        cart.map((item) => <div key={crypto.randomUUID()}>{item}</div>)
+        cart.map((item) => {
+          <div key={crypto.randomUUID()}>
+            <img src={item.image} alt="" />
+            <div>{item.title}</div>
+          </div>;
+        })
       ) : (
         <div>No item in the cart</div>
       )}
