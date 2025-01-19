@@ -7,6 +7,7 @@ const allProductUrl = `https://fakestoreapi.com/products`;
 const Container = styled.div`
   padding: 2em;
   margin-top: 3em;
+  background-color: #eaeded;
 `;
 const ItemContainer = styled.div`
   display: grid;

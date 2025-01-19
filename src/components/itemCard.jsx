@@ -4,6 +4,7 @@ import AddCartBtn from "./AddToCartBtn";
 
 const Container = styled.div`
   display: grid;
+  background-color: white;
   padding: 0.4em 0.7em;
   border-radius: 8px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
