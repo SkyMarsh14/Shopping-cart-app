@@ -2,7 +2,7 @@ import { useContext } from "react";
 import styled from "styled-components";
 import CartContext from "../util/CartContext";
 import { Trash2 } from "lucide-react";
-const button = styled.button``;
+const StyledButton = styled.button``;
 const Container = styled.div`
   display: flex;
   align-items: center;
@@ -24,14 +24,14 @@ const Counter = ({ index }) => {
   return (
     <Container>
       {cart[index].count === 1 ? (
-        <button>
+        <StyledButton>
           <Trash2 onClick={() => handleClick(-1)}></Trash2>
-        </button>
+        </StyledButton>
       ) : (
-        <button onClick={() => handleClick(-1)}>-</button>
+        <StyledButton onClick={() => handleClick(-1)}>-</StyledButton>
       )}
       <div>{cart[index]?.count}</div>
-      <button onClick={() => handleClick(1)}>+</button>
+      <StyledButton onClick={() => handleClick(1)}>+</StyledButton>
     </Container>
   );
 };
