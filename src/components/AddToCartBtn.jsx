@@ -20,6 +20,7 @@ const AddCartBtn = ({ itemData }) => {
   const [cart, setCart] = useContext(CartContext);
   const handleClick = () => {
     setCart((prev) => {
+      console.log(prev);
       if (!prev) {
         return [{ ...itemData, count: 1 }];
       }
