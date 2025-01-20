@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import { ShoppingCart } from "lucide-react";
 import StyledLink from "../components/StyledLink";
+import CartContext from "../util/CartContext";
+import { useContext } from "react";
 
 const StyledHeader = styled.header`
   display: flex;
@@ -23,8 +25,8 @@ const Ul = styled.ul`
   align-items: center;
   gap: 2em;
 `;
-
 const Header = () => {
+  const [cart] = useContext(CartContext);
   return (
     <StyledHeader>
       <div className="home">Shopping Cart</div>

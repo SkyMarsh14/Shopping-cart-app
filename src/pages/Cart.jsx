@@ -2,7 +2,7 @@ import CartContext from "../util/CartContext";
 import styled from "styled-components";
 import { useContext, useState } from "react";
 import TotalPrice from "../components/TotalPrice";
-
+import Counter from "../components/Counter";
 const Container = styled.div`
   padding: 2em;
   margin-top: 3em;
@@ -43,17 +43,20 @@ const Cart = () => {
       <GridWrapper>
         <H1>Shopping Cart</H1>
         {cart ? (
-          cart.map((item) => {
-            return (
-              <ItemCard key={crypto.randomUUID()}>
-                <img src={item.image}></img>
-                <DetailsDiv>
-                  <div>{item.title}</div>
-                  <div>{item.description}</div>
-                </DetailsDiv>
-                <div>${item.price * item.count}</div>
-              </ItemCard>
-            );
+          cart.map((item, index) => {
+            if (item.count >= 1) {
+              return (
+                <ItemCard key={crypto.randomUUID()}>
+                  <img src={item.image}></img>
+                  <DetailsDiv>
+                    <div>{item.title}</div>
+                    <div>{item.description}</div>
+                  </DetailsDiv>
+                  <div>${item.price * item.count}</div>
+                  <Counter index={index}></Counter>
+                </ItemCard>
+              );
+            }
           })
         ) : (
           <div>No item in the cart</div>

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import useProductData from "../util/useProductData";
-import Card from "./../components/itemCard";
+import Card from "./../components/ItemCard";
 
 const allProductUrl = `https://fakestoreapi.com/products`;
 

@@ -20,7 +20,7 @@ const Home = () => {
     <Container>
       <WelcomeMessage>
         <h1>
-          Welcom to <br></br>
+          Welcome to <br></br>
           <span>The Awesome Shop</span>
         </h1>
         <div>
