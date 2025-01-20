@@ -52,7 +52,4 @@ const Card = ({ data }) => {
   );
 };
 
-Card.propTypes = {
-  name: PropTypes.object.isRequired,
-};
 export default Card;
