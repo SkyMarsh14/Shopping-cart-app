@@ -1,6 +1,7 @@
 import { Star } from "lucide-react";
 import styled from "styled-components";
 import AddCartBtn from "./AddToCartBtn";
+import PropTypes from "prop-types";
 
 const Container = styled.div`
   display: grid;
@@ -37,12 +38,12 @@ const Card = ({ data }) => {
   return (
     <Container>
       <ImageContainer>
-        <StyledImg src={data.image} />
+        <StyledImg src={data.image} alt={data.title} />
       </ImageContainer>
       <RatingDiv>
         <div>$ {data.price}</div>
         <Star />
-        <div>
+        <div data-testid="rate-count">
           {data.rating.rate} ({data.rating.count})
         </div>
       </RatingDiv>
@@ -51,4 +52,7 @@ const Card = ({ data }) => {
   );
 };
 
+Card.propTypes = {
+  name: PropTypes.object.isRequired,
+};
 export default Card;
