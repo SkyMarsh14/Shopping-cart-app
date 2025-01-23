@@ -33,7 +33,9 @@ const RatingDiv = styled.div`
   gap: 0.5em;
   justify-content: center;
 `;
-
+const StarIcon = styled(Star)`
+  transform: translateX(0.3em);
+`;
 const Card = ({ data }) => {
   return (
     <Container>
@@ -42,7 +44,7 @@ const Card = ({ data }) => {
       </ImageContainer>
       <RatingDiv>
         <div>$ {data.price}</div>
-        <Star />
+        <StarIcon />
         <div data-testid="rate-count">
           {data.rating.rate} ({data.rating.count})
         </div>

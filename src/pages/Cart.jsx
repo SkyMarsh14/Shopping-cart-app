@@ -4,8 +4,7 @@ import { useContext, useState } from "react";
 import TotalPrice from "../components/TotalPrice";
 import Counter from "../components/Counter";
 const Container = styled.div`
-  padding: 2em;
-  margin-top: 3em;
+  padding: 6em;
   background-color: #eaeded;
 `;
 const GridWrapper = styled.div`
