@@ -1,8 +1,8 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { ShoppingCart } from "lucide-react";
 import StyledLink from "../components/StyledLink";
 import CartContext from "../util/CartContext";
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 
 const StyledHeader = styled.header`
   display: flex;
@@ -32,16 +32,31 @@ const ShoppingCartSvg = styled(ShoppingCart)``;
 const CartIcon = styled.div`
   display: flex;
 `;
+const animateOnAdd = keyframes`
+
+  from{
+    transform:scale(1);
+  }
+  50%{
+    transform:scale(1.5)
+  }
+  to{
+    transform:scale(1)
+    }
+`;
 const Count = styled.div`
-  transform: translateY(-40%);
   display: flex;
+  position: relative;
+  top: -1ch;
   align-items: center;
   justify-content: center;
+  font-size: 0.8em;
   width: 2.2ch;
   height: 2.2ch;
   border-radius: 50%;
   background-color: orange;
   color: white;
+  animation: ${animateOnAdd} 1s 1;
 `;
 const CartLinkDiv = styled(StyledLink)`
   text-decoration: none;
@@ -52,6 +67,10 @@ const CartLinkDiv = styled(StyledLink)`
 
 const Header = () => {
   const [cart] = useContext(CartContext);
+  const [count, setCount] = useState(0);
+  useEffect(() => {
+    setCount((prev) => prev + 1);
+  }, [cart]);
   return (
     <StyledHeader>
       <div className="home">Shopping Cart</div>
@@ -62,7 +81,7 @@ const Header = () => {
           <CartLinkDiv to="cart">
             <CartIcon>
               <ShoppingCartSvg />
-              {cart && <Counter cart={cart} />}
+              {cart && <Counter cart={cart} key={count} />}
             </CartIcon>
           </CartLinkDiv>
         </Ul>
