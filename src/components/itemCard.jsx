@@ -1,7 +1,6 @@
 import { Star } from "lucide-react";
 import styled from "styled-components";
 import AddCartBtn from "./AddToCartBtn";
-import PropTypes from "prop-types";
 
 const Container = styled.div`
   display: grid;

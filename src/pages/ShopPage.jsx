@@ -5,9 +5,9 @@ import Card from "../components/itemCard";
 const allProductUrl = `https://fakestoreapi.com/products`;
 
 const Container = styled.div`
-  background-color: #eaeded;
-  padding: 0 2em 2em 2em;
   position: relative;
+  width: 100%;
+  background-color: #eaeded;
 `;
 const ItemContainer = styled.div`
   display: grid;
@@ -19,18 +19,24 @@ const StyledH1 = styled.h1`
   padding: 0.5em;
   padding-top: 2.5em;
 `;
+const GridContainer = styled.div`
+  margin: auto;
+  width: min(1200px, 80%);
+`;
 const ShopPage = () => {
   const { data, error, loading } = useProductData(allProductUrl);
   return (
     <Container>
-      <StyledH1>Shopping Page</StyledH1>
-      {loading ? (
-        <div>loading...</div>
-      ) : (
-        <ItemContainer>
-          {data && data.map((each) => <Card key={each.id} data={each} />)}
-        </ItemContainer>
-      )}
+      <GridContainer>
+        <StyledH1>Shopping Page</StyledH1>
+        {loading ? (
+          <div>loading...</div>
+        ) : (
+          <ItemContainer>
+            {data && data.map((each) => <Card key={each.id} data={each} />)}
+          </ItemContainer>
+        )}
+      </GridContainer>
     </Container>
   );
 };
