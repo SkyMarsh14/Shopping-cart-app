@@ -1,6 +1,7 @@
 import styled from "styled-components";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import CartContext from "../util/CartContext";
+import CartPopup from "./CartPopUp";
 const StyledBtn = styled.button`
   background-color: rgb(255, 216, 20);
   color: black;
@@ -17,8 +18,13 @@ const StyledBtn = styled.button`
   }
 `;
 const AddCartBtn = ({ itemData }) => {
-  const [cart, setCart] = useContext(CartContext);
+  const [, setCart] = useContext(CartContext);
+  const [visible, setVisible] = useState(null);
   const handleClick = () => {
+    setVisible(true);
+    setTimeout(() => {
+      setVisible(false);
+    }, 1800);
     setCart((prev) => {
       if (!prev) {
         return [{ ...itemData, count: 1 }];
@@ -36,9 +42,14 @@ const AddCartBtn = ({ itemData }) => {
     });
   };
   return (
-    <StyledBtn type="button" onClick={handleClick}>
-      Add to Cart
-    </StyledBtn>
+    <>
+      <StyledBtn type="button" onClick={handleClick}>
+        Add to Cart
+      </StyledBtn>
+      {visible && (
+        <CartPopup itemName={itemData.title} setVisible={setVisible} />
+      )}
+    </>
   );
 };
 

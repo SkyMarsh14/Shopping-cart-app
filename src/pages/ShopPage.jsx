@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import useProductData from "../util/useProductData";
 import Card from "../components/itemCard";
-
 const allProductUrl = `https://fakestoreapi.com/products`;
 
 const Container = styled.div`
@@ -22,6 +21,7 @@ const StyledH1 = styled.h1`
 const GridContainer = styled.div`
   margin: auto;
   width: min(1200px, 80%);
+  padding-bottom: 2em;
 `;
 const ShopPage = () => {
   const { data, error, loading } = useProductData(allProductUrl);
