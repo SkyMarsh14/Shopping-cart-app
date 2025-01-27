@@ -44,11 +44,7 @@ const AddCartBtn = ({ itemData }) => {
         Add to Cart
       </StyledBtn>
       {visible && (
-        <CartPopup
-          itemName={itemData.title}
-          visible={visible}
-          setVisible={setVisible}
-        />
+        <CartPopup itemName={itemData.title} setVisible={setVisible} />
       )}
     </>
   );

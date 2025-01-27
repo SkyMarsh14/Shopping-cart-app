@@ -1,5 +1,7 @@
 import styled, { keyframes } from "styled-components";
 import { useState, useEffect } from "react";
+import { Check } from "lucide-react";
+import { Link } from "react-router";
 const Container = styled.div`
   position: fixed;
   right: 1em;
@@ -39,12 +41,34 @@ const Modal = styled.div`
   animation: ${(props) => (props.$fadeout ? outAnimation : inAnimation)} 0.3s 1
     forwards;
 `;
-
-const Span = styled.span`
-  text-overflow: ellipsis;
-  max-width: 10ch;
+const CheckIcon = styled(Check)`
+  color: white;
+  border-radius: 50%;
+  padding: 4px;
+  background-color: #87df87;
+  display: inline-block;
+  vertical-align: top;
+  transform: translateY(10%);
+  margin-right: 1ch;
 `;
-const CartPopup = ({ itemName, visible, setVisible }) => {
+const Span = styled.span`
+  width: 20ch;
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: top;
+  text-overflow: ellipsis;
+`;
+const CartLink = styled(Link)`
+  text-decoration: none;
+  font-size: 0.8 em;
+  color: white;
+  background-color: black;
+  border-radius: 3px;
+  margin-left: 1em;
+  padding: 0.2em 0.3em;
+`;
+const CartPopup = ({ itemName, setVisible }) => {
   const capName = capitalize(itemName);
   const [showModal, setShowModal] = useState(true);
   const [fadeout, setFadeOut] = useState(false);
@@ -62,7 +86,9 @@ const CartPopup = ({ itemName, visible, setVisible }) => {
     <Container>
       {showModal && (
         <Modal $fadeout={fadeout}>
+          <CheckIcon />
           <Span>{capName}</Span> has been added to the cart!
+          <CartLink to="/cart">View Cart</CartLink>
         </Modal>
       )}
     </Container>
