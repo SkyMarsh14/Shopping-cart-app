@@ -22,9 +22,6 @@ const AddCartBtn = ({ itemData }) => {
   const [visible, setVisible] = useState(null);
   const handleClick = () => {
     setVisible(true);
-    setTimeout(() => {
-      setVisible(false);
-    }, 1800);
     setCart((prev) => {
       if (!prev) {
         return [{ ...itemData, count: 1 }];
@@ -47,7 +44,11 @@ const AddCartBtn = ({ itemData }) => {
         Add to Cart
       </StyledBtn>
       {visible && (
-        <CartPopup itemName={itemData.title} setVisible={setVisible} />
+        <CartPopup
+          itemName={itemData.title}
+          visible={visible}
+          setVisible={setVisible}
+        />
       )}
     </>
   );

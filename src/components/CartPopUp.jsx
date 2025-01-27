@@ -1,21 +1,65 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+import { useState, useEffect } from "react";
 const Container = styled.div`
-  width: 20vw;
+  width: 30vw;
   position: fixed;
-  right: 0;
-  bottom: 0;
+  right: 1em;
+  bottom: 1em;
+  z-index: 1;
+`;
+const inAnimation = keyframes`
+    0%{
+        opacity:30%;
+        transform:translateY(-50%);
+        
+    }
+    50%{
+        opacity:0.6;
+    }
+    100%{
+        opacity:1;
+        transform:translateY(0%);
+    }
+`;
+const outAnimation = keyframes`
+    0%{
+        opacity:1;
+        transform:translateY(0%);
+    }
+    100%{
+        opacity:0;
+        transform:translateY(-50%);
+    }
 `;
 const Modal = styled.div`
   width: 100%;
   padding: 1em;
   border-radius: 10px;
+  box-shadow: 0 0 8px gray;
+  background-color: white;
+  animation: ${(props) => (props.fadeOut ? outAnimation : inAnimation)} 0.3s 1
+    forwards;
 `;
 
-const CartPopup = ({ itemName }) => {
+const CartPopup = ({ itemName, visible, setVisible }) => {
   const capName = capitalize(itemName);
+  const [showModal, setShowModal] = useState(true);
+  const [fadeOut, setFadeOut] = useState(false);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setFadeOut(true);
+      setTimeout(() => {
+        setShowModal(false);
+        setVisible(false);
+      }, 300);
+    }, 1800);
+    return () => clearTimeout(timer);
+  }, [setVisible]);
   return (
     <Container>
-      <Modal>{capName} has been added to the cart!</Modal>
+      {showModal && (
+        <Modal fadeOut={fadeOut}>{capName} has been added to the cart!</Modal>
+      )}
     </Container>
   );
 };
