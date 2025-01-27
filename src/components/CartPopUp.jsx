@@ -1,7 +1,6 @@
 import styled, { keyframes } from "styled-components";
 import { useState, useEffect } from "react";
 const Container = styled.div`
-  width: 30vw;
   position: fixed;
   right: 1em;
   bottom: 1em;
@@ -37,14 +36,18 @@ const Modal = styled.div`
   border-radius: 10px;
   box-shadow: 0 0 8px gray;
   background-color: white;
-  animation: ${(props) => (props.fadeOut ? outAnimation : inAnimation)} 0.3s 1
+  animation: ${(props) => (props.$fadeout ? outAnimation : inAnimation)} 0.3s 1
     forwards;
 `;
 
+const Span = styled.span`
+  text-overflow: ellipsis;
+  max-width: 10ch;
+`;
 const CartPopup = ({ itemName, visible, setVisible }) => {
   const capName = capitalize(itemName);
   const [showModal, setShowModal] = useState(true);
-  const [fadeOut, setFadeOut] = useState(false);
+  const [fadeout, setFadeOut] = useState(false);
   useEffect(() => {
     const timer = setTimeout(() => {
       setFadeOut(true);
@@ -58,7 +61,9 @@ const CartPopup = ({ itemName, visible, setVisible }) => {
   return (
     <Container>
       {showModal && (
-        <Modal fadeOut={fadeOut}>{capName} has been added to the cart!</Modal>
+        <Modal $fadeout={fadeout}>
+          <Span>{capName}</Span> has been added to the cart!
+        </Modal>
       )}
     </Container>
   );
