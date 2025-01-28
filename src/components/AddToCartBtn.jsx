@@ -3,7 +3,7 @@ import { useContext, useState } from "react";
 import CartContext from "../util/CartContext";
 import CartPopup from "./CartPopUp";
 const StyledBtn = styled.button`
-  background-color: rgb(255, 216, 20);
+  background-color: rgb(123, 167, 233);
   color: black;
   cursor: pointer;
   border-style: none;

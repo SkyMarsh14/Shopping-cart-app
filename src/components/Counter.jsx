@@ -2,12 +2,25 @@ import { useContext } from "react";
 import styled from "styled-components";
 import CartContext from "../util/CartContext";
 import { Trash2 } from "lucide-react";
-const StyledButton = styled.button``;
+const StyledIcon = styled(Trash2)``;
+const StyledButton = styled.button`
+  height: 2em;
+  width: 2em;
+  border: none;
+  background-color: #59b4f9;
+  color: #ffffffdb;
+  &:hover {
+    opacity: 0.8;
+  }
+`;
 const Container = styled.div`
   display: flex;
   align-items: center;
-  min-width: 100px;
   gap: 1em;
+  justify-self: center;
+  background-color: #efeded;
+  overflow: hidden;
+  border-radius: 10px;
 `;
 const Counter = ({ index }) => {
   const [cart, setCart] = useContext(CartContext);
@@ -25,7 +38,7 @@ const Counter = ({ index }) => {
     <Container>
       {cart[index].count === 1 ? (
         <StyledButton>
-          <Trash2 onClick={() => handleClick(-1)}></Trash2>
+          <StyledIcon onClick={() => handleClick(-1)}></StyledIcon>
         </StyledButton>
       ) : (
         <StyledButton onClick={() => handleClick(-1)}>-</StyledButton>
