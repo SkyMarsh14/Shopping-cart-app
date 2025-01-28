@@ -23,7 +23,8 @@ const TotalPrice = () => {
   }, 0);
   return (
     <Container>
-      Subtotal ({totalCount} items) <Span>${totalPrice}</Span>
+      Subtotal ({totalCount} items){" "}
+      <Span>${Math.round(totalPrice * 100) / 100}</Span>
     </Container>
   );
 };

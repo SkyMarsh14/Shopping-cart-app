@@ -51,7 +51,7 @@ const Cart = () => {
                     <div>{item.title}</div>
                     <div>{item.description}</div>
                   </DetailsDiv>
-                  <div>${item.price * item.count}</div>
+                  <div>${Math.round(item.price * item.count * 100) / 100}</div>
                   <Counter index={index}></Counter>
                 </ItemCard>
               );
