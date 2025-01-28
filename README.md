@@ -1,6 +1,6 @@
 # Shopping Cart Project
 
-This is a React-based shopping cart project for The Odin Project's React Course. It demonstrates fundamental React concepts such as component structure, state management, routing, and API fetching.
+This is a React-based shopping cart project created for The Odin Project's React Course. It demonstrates fundamental React concepts such as component structure, state management, routing, and API fetching. Live version of this [Shopping Cart Site](https://react-shopping-cart-skym.netlify.app) can be found here.
 
 ## Features
 
@@ -24,7 +24,7 @@ This is a React-based shopping cart project for The Odin Project's React Course.
 - FakeStore API (or similar for product fetching)
 - React Testing Library
 - CSS / Styled Components
-- Hosting: Netlify / Vercel / Cloudflare Pages
+- Hosting: Netlify
 
 ## Installation
 
