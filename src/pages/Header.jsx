@@ -5,6 +5,7 @@ import CartContext from "../util/CartContext";
 import { useContext, useState, useEffect } from "react";
 
 const StyledHeader = styled.header`
+  font-family: "Niconne", serif;
   display: flex;
   height: 4em;
   color: #bf4f74;
