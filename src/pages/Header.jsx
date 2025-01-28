@@ -77,9 +77,13 @@ const Header = () => {
       <div className="home">Shopping Cart</div>
       <nav>
         <Ul>
-          <StyledLink to="/">Home</StyledLink>
-          <StyledLink to="shop">Shop</StyledLink>
-          <CartLinkDiv to="cart">
+          <StyledLink to="/" viewTransition>
+            Home
+          </StyledLink>
+          <StyledLink to="shop" viewTransition>
+            Shop
+          </StyledLink>
+          <CartLinkDiv to="cart" viewTransition>
             <CartIcon>
               <ShoppingCartSvg />
               {cart && <Counter cart={cart} key={count} />}

@@ -88,7 +88,9 @@ const CartPopup = ({ itemName, setVisible }) => {
         <Modal $fadeout={fadeout}>
           <CheckIcon />
           <Span>{capName}</Span> has been added to the cart!
-          <CartLink to="/cart">View Cart</CartLink>
+          <CartLink to="/cart" viewTransition>
+            View Cart
+          </CartLink>
         </Modal>
       )}
     </Container>
